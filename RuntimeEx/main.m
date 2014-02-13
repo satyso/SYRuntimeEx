@@ -14,6 +14,20 @@
 
 #import "RuntimeTest.h"
 
+@interface RuntimeTest (ex)
+
+-(NSString *) newTestMethod:(Method)method array:(NSArray*)array integer:(NSInteger)integer;
+
+@end
+
+@implementation RuntimeTest (ex)
+
+-(NSString *) newTestMethod:(Method)method array:(NSArray*)array integer:(NSInteger)integer
+{
+    return @"new testMethod";
+}
+
+@end
 
 int main(int argc, const char * argv[])
 {
@@ -23,7 +37,7 @@ int main(int argc, const char * argv[])
     {
         RuntimeTest* test = [RuntimeTest new];
         
-        {//replace Method
+        {//replace Method via block
             NSLog(@"%@", [test testMethod:NULL array:nil integer:0]);
             
             classEx_replaceMethodWithBlock([RuntimeTest class], @selector(testMethod:array:integer:), ^NSString*(__weak id self, Method m, NSArray* a, NSInteger i){
@@ -32,6 +46,12 @@ int main(int argc, const char * argv[])
                 NSLog(@"int = %ld", i);
                 return @"classEx_replaceMethodWithBlock";
             });
+            NSLog(@"%@", [test testMethod:NULL array:@[@1,@2,@3] integer:11111]);
+        }
+        
+        {//replace Method via method
+            classEx_replaceMethod([RuntimeTest class], @selector(testMethod:array:integer:), @selector(newTestMethod:array:integer:));
+            
             NSLog(@"%@", [test testMethod:NULL array:@[@1,@2,@3] integer:11111]);
         }
         
@@ -51,7 +71,6 @@ int main(int argc, const char * argv[])
         }
     }
     
-    system("pause");
     return 0;
 }
 

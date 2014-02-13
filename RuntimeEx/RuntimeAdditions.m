@@ -6,39 +6,13 @@
 //  Copyright (c) 2014年 song4@163.com. All rights reserved.
 //
 
-#import "RuntimeAdditions.h"
 #import <objc/runtime.h>
 
+#import "RuntimeAdditions.h"
 
-#define AssertEx(expression, ...) \
-do { if(!(expression)) { \
-NSLog(@"%@", [NSString stringWithFormat: @"Assertion failure: %s in %s on line %s:%d. %@", #expression, __PRETTY_FUNCTION__, __FILE__, __LINE__, [NSString stringWithFormat:@"" __VA_ARGS__]]); \
-abort(); }} while(0)
+#import "BlockDefine.h"
+#import "Util.h"
 
-struct BlockModel {
-    void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
-    int flags;
-    int reserved;
-    void (*invoke)(void *, ...);
-    struct block_descriptor {
-        unsigned long int reserved;	// NULL
-    	unsigned long int size;         // sizeof(struct Block_literal_1)
-        // optional helper functions
-    	void (*copy_helper)(void *dst, void *src);     // IFF (1<<25)
-    	void (*dispose_helper)(void *src);             // IFF (1<<25)
-        // required ABI.2010.3.16
-        const char *signature;                         // IFF (1<<30)
-    } *descriptor;
-    // imported variables
-};
-
-enum {
-    BlockDescriptionFlagsHasCopyDispose = (1 << 25),
-    BlockDescriptionFlagsHasCtor = (1 << 26), // helpers have C++ code
-    BlockDescriptionFlagsIsGlobal = (1 << 28),
-    BlockDescriptionFlagsHasStret = (1 << 29), // IFF BLOCK_HAS_SIGNATURE
-    BlockDescriptionFlagsHasSignature = (1 << 30)
-};
 
 //private
 //////////////////////////////////////////////////////////////////
@@ -49,35 +23,7 @@ const char* getBlockSignature(id block);
 
 //////////////////////////////////////////////////////////////////
 
-BOOL classEx_replaceMethodWithBlock(Class c, SEL originalSEL, id block)
-{
-    Method origMethod = class_getInstanceMethod(c, originalSEL);
-    const char *encoding = method_getTypeEncoding(origMethod);
-    
-    if (isSignatureEqual(block, origMethod) == NO)
-    {
-        AssertEx(0, @"lookup args");
-        return NO;
-    }
-    
-    SEL tmpSEL = NSSelectorFromString([NSString stringWithFormat:@"%p%@", block, NSStringFromSelector(originalSEL)]);
-    // Add the new method.
-    
-    IMP impl = imp_implementationWithBlock(block);
-    
-    if (!class_addMethod(c, tmpSEL, impl, encoding))
-    {
-        AssertEx(0, @"can't add SEL %@", NSStringFromSelector(tmpSEL));
-        return NO;
-    }
-    else
-    {
-        return classEx_replaceMethod(c, originalSEL, tmpSEL);
-    }
-    return YES;
-}
-
-BOOL classEx_replaceMethod(Class c, SEL originalSEL, SEL newSEL)
+BOOL classEx_exchangeMethod(Class c, SEL originalSEL, SEL newSEL)
 {
     Method origMethod = class_getInstanceMethod(c, originalSEL);
     Method newMethod = class_getInstanceMethod(c, newSEL);
@@ -91,14 +37,31 @@ BOOL classEx_replaceMethod(Class c, SEL originalSEL, SEL newSEL)
         return NO;
     }
     
-    if (class_addMethod(c, originalSEL, method_getImplementation(newMethod), origMethodEncoding))
+    method_exchangeImplementations(origMethod, newMethod);
+    
+    return YES;
+}
+
+BOOL classEx_replaceMethodWithBlock(Class c, SEL originalSEL, id block)
+{
+    Method origMethod = class_getInstanceMethod(c, originalSEL);
+    
+    if (isSignatureEqual(block, origMethod) == NO)
     {
-        class_replaceMethod(c, newSEL, method_getImplementation(origMethod), origMethodEncoding);
+        AssertEx(0, @"lookup args");
+        return NO;
     }
-    else
-    {
-        method_exchangeImplementations(origMethod, newMethod);
-    }
+    
+    IMP impl = imp_implementationWithBlock(block);
+    
+    return classEx_replaceMethodWithIMP(c, originalSEL, impl);
+}
+
+BOOL classEx_replaceMethodWithIMP(Class c, SEL originalSEL, IMP newIMP)
+{
+    const char* encoding = method_getTypeEncoding(class_getInstanceMethod(c, originalSEL));
+    
+    class_replaceMethod(c, originalSEL, newIMP, encoding);
     
     return YES;
 }
@@ -109,7 +72,6 @@ BOOL classEx_addMethodWithBlock(Class c, NSString* selString, id block)
     {
         return YES;
     }
-    
     return NO;
 }
 

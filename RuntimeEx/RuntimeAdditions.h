@@ -12,9 +12,11 @@
  @abstract replace originalSelector with newSelector.
  */
 
-BOOL classEx_replaceMethod(Class c, SEL originalSEL, SEL newSEL);
+BOOL classEx_exchangeMethod(Class c, SEL originalSEL, SEL newSEL);
 
 BOOL classEx_replaceMethodWithBlock(Class c, SEL originalSEL, id block);
+
+BOOL classEx_replaceMethodWithIMP(Class c, SEL originalSEL, IMP newIMP);
 
 BOOL classEx_addMethodWithBlock(Class c, NSString* selString, id block);
 
