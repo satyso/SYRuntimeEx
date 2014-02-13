@@ -105,7 +105,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = ALipay;
+				ORGANIZATIONNAME = "song4@163.com";
 			};
 			buildConfigurationList = 6FB40ABC18AB9BF70006A9DA /* Build configuration list for PBXProject "RuntimeEx" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -241,6 +241,7 @@
 				6FB40ACC18AB9BF70006A9DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

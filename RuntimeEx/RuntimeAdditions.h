@@ -3,7 +3,7 @@
 //  simplearray
 //
 //  Created by satyso on 14-2-12.
-//  Copyright (c) 2014年 Graham Lee. All rights reserved.
+//  Copyright (c) 2014年 song4@163.com. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
