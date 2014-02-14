@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^block_t)(void);
+
 @interface NSObject (RuntimeEx)
+
+-(BOOL)SELWillBeReturned:(SEL)sel executeOperation:(block_t)extraBlock;
 
 @end

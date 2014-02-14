@@ -15,4 +15,16 @@
     return @"original testMethod";
 }
 
+-(void) testVoidMethod:(Method)method array:(NSArray*)array doubleValue:(double)d
+{
+    NSLog(@"testVoidMethod");
+    NSLog(@"method = %p, array = %@, double = %lf", method, array, d);
+}
+
+-(void) testVoidMethod2:(Method)method array:(NSArray*)array integer:(int)integer doubleValue:(double)d
+{
+    NSLog(@"testVoidMethod2");
+    NSLog(@"method = %p, array = %@, integer = %d, double = %lf", method, array, integer, d);
+}
+
 @end

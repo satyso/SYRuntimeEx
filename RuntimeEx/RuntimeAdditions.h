@@ -20,4 +20,3 @@ BOOL classEx_replaceMethodWithIMP(Class c, SEL originalSEL, IMP newIMP);
 
 BOOL classEx_addMethodWithBlock(Class c, NSString* selString, id block);
 
-

@@ -14,4 +14,7 @@
 
 -(NSString *) testMethod:(Method)method array:(NSArray*)array integer:(NSInteger)integer;
 
+-(void) testVoidMethod:(Method)method array:(NSArray*)array doubleValue:(double)d;
+
+-(void) testVoidMethod2:(Method)method array:(NSArray*)array integer:(int)integer doubleValue:(double)d;
 @end

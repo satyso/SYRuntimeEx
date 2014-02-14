@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F2FE17F18ACAAB7007F1F21 /* NSObject+RuntimeEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FE17E18ACAAB7007F1F21 /* NSObject+RuntimeEx.m */; };
 		6FB40AC518AB9BF70006A9DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB40AC418AB9BF70006A9DA /* main.m */; };
 		6FB40AC718AB9BF70006A9DA /* RuntimeEx.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6FB40AC618AB9BF70006A9DA /* RuntimeEx.1 */; };
 		6FB40ACF18AB9C1A0006A9DA /* RuntimeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB40ACE18AB9C1A0006A9DA /* RuntimeAdditions.m */; };
@@ -29,6 +30,8 @@
 /* Begin PBXFileReference section */
 		6F2FE17A18AC79C4007F1F21 /* BlockDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockDefine.h; sourceTree = "<group>"; };
 		6F2FE17B18AC7A48007F1F21 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		6F2FE17D18ACAAB7007F1F21 /* NSObject+RuntimeEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RuntimeEx.h"; sourceTree = "<group>"; };
+		6F2FE17E18ACAAB7007F1F21 /* NSObject+RuntimeEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RuntimeEx.m"; sourceTree = "<group>"; };
 		6FB40AC118AB9BF70006A9DA /* RuntimeEx */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RuntimeEx; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB40AC418AB9BF70006A9DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6FB40AC618AB9BF70006A9DA /* RuntimeEx.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = RuntimeEx.1; sourceTree = "<group>"; };
@@ -78,6 +81,8 @@
 				6FB40AD118AB9C340006A9DA /* RuntimeTest.m */,
 				6F2FE17A18AC79C4007F1F21 /* BlockDefine.h */,
 				6F2FE17B18AC7A48007F1F21 /* Util.h */,
+				6F2FE17D18ACAAB7007F1F21 /* NSObject+RuntimeEx.h */,
+				6F2FE17E18ACAAB7007F1F21 /* NSObject+RuntimeEx.m */,
 			);
 			path = RuntimeEx;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 				6FB40ACF18AB9C1A0006A9DA /* RuntimeAdditions.m in Sources */,
 				6FB40AD218AB9C340006A9DA /* RuntimeTest.m in Sources */,
 				6FB40AC518AB9BF70006A9DA /* main.m in Sources */,
+				6F2FE17F18ACAAB7007F1F21 /* NSObject+RuntimeEx.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

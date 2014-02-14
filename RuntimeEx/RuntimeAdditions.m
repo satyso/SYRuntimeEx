@@ -13,7 +13,6 @@
 #import "BlockDefine.h"
 #import "Util.h"
 
-
 //private
 //////////////////////////////////////////////////////////////////
 
@@ -129,8 +128,8 @@ BOOL isSignatureEqual(id block, Method method)
     
     for (int i = 2; i < methodSignature.numberOfArguments; i++)
     {
-        NSLog(@"%s", [methodSignature getArgumentTypeAtIndex:i]);
-        NSLog(@"%s", [blockSignature getArgumentTypeAtIndex:i]);
+//        NSLog(@"%s", [methodSignature getArgumentTypeAtIndex:i]);
+//        NSLog(@"%s", [blockSignature getArgumentTypeAtIndex:i]);
         if (strncmp([blockSignature getArgumentTypeAtIndex:i], [methodSignature getArgumentTypeAtIndex:i], strlen([methodSignature getArgumentTypeAtIndex:i])) != 0)
         {
             return NO;
