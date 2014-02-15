@@ -1,6 +1,6 @@
 //
 //  RuntimeAdditions.h
-//  simplearray
+//  RuntimeEx
 //
 //  Created by satyso on 14-2-12.
 //  Copyright (c) 2014年 song4@163.com. All rights reserved.

@@ -53,6 +53,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6FB2AAC218AF498C00B806B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6FB40AC618AB9BF70006A9DA /* RuntimeEx.1 */,
+				6FB40AD018AB9C340006A9DA /* RuntimeTest.h */,
+				6FB40AD118AB9C340006A9DA /* RuntimeTest.m */,
+				6FB40AD418AB9CF50006A9DA /* PrefixHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6FB2AAC318AF49B000B806B9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6FB40ACD18AB9C1A0006A9DA /* RuntimeAdditions.h */,
+				6FB40ACE18AB9C1A0006A9DA /* RuntimeAdditions.m */,
+				6F2FE17D18ACAAB7007F1F21 /* NSObject+RuntimeEx.h */,
+				6F2FE17E18ACAAB7007F1F21 /* NSObject+RuntimeEx.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		6FB2AAC518AF49EA00B806B9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6F2FE17A18AC79C4007F1F21 /* BlockDefine.h */,
+				6F2FE17B18AC7A48007F1F21 /* Util.h */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		6FB40AB818AB9BF70006A9DA = {
 			isa = PBXGroup;
 			children = (
@@ -73,16 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				6FB40AC418AB9BF70006A9DA /* main.m */,
-				6FB40AD418AB9CF50006A9DA /* PrefixHeader.pch */,
-				6FB40AC618AB9BF70006A9DA /* RuntimeEx.1 */,
-				6FB40ACD18AB9C1A0006A9DA /* RuntimeAdditions.h */,
-				6FB40ACE18AB9C1A0006A9DA /* RuntimeAdditions.m */,
-				6FB40AD018AB9C340006A9DA /* RuntimeTest.h */,
-				6FB40AD118AB9C340006A9DA /* RuntimeTest.m */,
-				6F2FE17A18AC79C4007F1F21 /* BlockDefine.h */,
-				6F2FE17B18AC7A48007F1F21 /* Util.h */,
-				6F2FE17D18ACAAB7007F1F21 /* NSObject+RuntimeEx.h */,
-				6F2FE17E18ACAAB7007F1F21 /* NSObject+RuntimeEx.m */,
+				6FB2AAC518AF49EA00B806B9 /* Util */,
+				6FB2AAC318AF49B000B806B9 /* Source */,
+				6FB2AAC218AF498C00B806B9 /* Supporting Files */,
 			);
 			path = RuntimeEx;
 			sourceTree = "<group>";

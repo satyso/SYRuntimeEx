@@ -1,6 +1,6 @@
 //
 //  RuntimeAdditions.m
-//  simplearray
+//  RuntimeEx
 //
 //  Created by satyso on 14-2-12.
 //  Copyright (c) 2014年 song4@163.com. All rights reserved.
@@ -128,8 +128,6 @@ BOOL isSignatureEqual(id block, Method method)
     
     for (int i = 2; i < methodSignature.numberOfArguments; i++)
     {
-//        NSLog(@"%s", [methodSignature getArgumentTypeAtIndex:i]);
-//        NSLog(@"%s", [blockSignature getArgumentTypeAtIndex:i]);
         if (strncmp([blockSignature getArgumentTypeAtIndex:i], [methodSignature getArgumentTypeAtIndex:i], strlen([methodSignature getArgumentTypeAtIndex:i])) != 0)
         {
             return NO;
