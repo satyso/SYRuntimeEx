@@ -88,7 +88,7 @@ int main(int argc, const char * argv[])
         }
         
         {
-            [test SELWillBeReturned:@selector(testVoidMethod2:array:integer:doubleValue:) executeOperation:^{
+            [test ifSELWillBeReturned:@selector(testVoidMethod2:array:integer:doubleValue:) executeOperation:^{
                 NSLog(@"add operation");
             }];
             

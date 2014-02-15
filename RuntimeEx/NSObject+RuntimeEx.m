@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 song4@163.com. All rights reserved.
 //
 #import <objc/runtime.h>
-#import <objc/message.h>
 
 #import "NSObject+RuntimeEx.h"
 
@@ -14,13 +13,14 @@
 
 #import "Util.h"
 
-#import "RuntimeAdditions.h"
 
 static void vfunc(id self,SEL sel, ...);
 
 #define KExtraBlockArrayKey @"KExtraBlockArrayKey"
 
-#define PRIVATESEL(selName)  [NSString stringWithFormat:@"satyso%@", selName]
+#define PRIVATESEL(selName)  [NSString stringWithFormat:@"songyi@satyso%@", selName]
+
+////////////////////////////////////////////////////////////private
 
 void** getArguList(va_list list, NSMethodSignature* methodSignature);
 
@@ -32,10 +32,12 @@ void** getPointValue(va_list list, const char* type);
 
 void** getObjectValue(va_list list, const char* type);
 
+////////////////////////////////////////////////////////////
+
 
 @implementation NSObject (RuntimeEx)
 
--(BOOL)SELWillBeReturned:(SEL)sel executeOperation:(block_t)extraBlock
+-(BOOL)ifSELWillBeReturned:(SEL)sel executeOperation:(block_t)extraBlock
 {
     if ([self respondsToSelector:sel] == NO)
     {

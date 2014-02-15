@@ -12,6 +12,10 @@ typedef void (^block_t)(void);
 
 @interface NSObject (RuntimeEx)
 
--(BOOL)SELWillBeReturned:(SEL)sel executeOperation:(block_t)extraBlock;
+/**
+ @  execute block before SEL return
+ */
+
+-(BOOL)ifSELWillBeReturned:(SEL)sel executeOperation:(block_t)extraBlock;
 
 @end
