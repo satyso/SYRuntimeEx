@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6F2FE17F18ACAAB7007F1F21 /* NSObject+RuntimeEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2FE17E18ACAAB7007F1F21 /* NSObject+RuntimeEx.m */; };
 		6FB40AC518AB9BF70006A9DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB40AC418AB9BF70006A9DA /* main.m */; };
-		6FB40AC718AB9BF70006A9DA /* RuntimeEx.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6FB40AC618AB9BF70006A9DA /* RuntimeEx.1 */; };
 		6FB40ACF18AB9C1A0006A9DA /* RuntimeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB40ACE18AB9C1A0006A9DA /* RuntimeAdditions.m */; };
 		6FB40AD218AB9C340006A9DA /* RuntimeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB40AD118AB9C340006A9DA /* RuntimeTest.m */; };
 /* End PBXBuildFile section */
@@ -21,7 +20,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				6FB40AC718AB9BF70006A9DA /* RuntimeEx.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -32,9 +30,8 @@
 		6F2FE17B18AC7A48007F1F21 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		6F2FE17D18ACAAB7007F1F21 /* NSObject+RuntimeEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RuntimeEx.h"; sourceTree = "<group>"; };
 		6F2FE17E18ACAAB7007F1F21 /* NSObject+RuntimeEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RuntimeEx.m"; sourceTree = "<group>"; };
-		6FB40AC118AB9BF70006A9DA /* RuntimeEx */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RuntimeEx; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FB40AC118AB9BF70006A9DA /* SYRuntimeEx */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SYRuntimeEx; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB40AC418AB9BF70006A9DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6FB40AC618AB9BF70006A9DA /* RuntimeEx.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = RuntimeEx.1; sourceTree = "<group>"; };
 		6FB40ACD18AB9C1A0006A9DA /* RuntimeAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeAdditions.h; sourceTree = "<group>"; };
 		6FB40ACE18AB9C1A0006A9DA /* RuntimeAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeAdditions.m; sourceTree = "<group>"; };
 		6FB40AD018AB9C340006A9DA /* RuntimeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeTest.h; sourceTree = "<group>"; };
@@ -53,12 +50,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F03CD2818E02081009F7C00 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				6FB40AC418AB9BF70006A9DA /* main.m */,
+				6FB40AD018AB9C340006A9DA /* RuntimeTest.h */,
+				6FB40AD118AB9C340006A9DA /* RuntimeTest.m */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
 		6FB2AAC218AF498C00B806B9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6FB40AC618AB9BF70006A9DA /* RuntimeEx.1 */,
-				6FB40AD018AB9C340006A9DA /* RuntimeTest.h */,
-				6FB40AD118AB9C340006A9DA /* RuntimeTest.m */,
 				6FB40AD418AB9CF50006A9DA /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
@@ -95,7 +99,7 @@
 		6FB40AC218AB9BF70006A9DA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6FB40AC118AB9BF70006A9DA /* RuntimeEx */,
+				6FB40AC118AB9BF70006A9DA /* SYRuntimeEx */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,7 +107,7 @@
 		6FB40AC318AB9BF70006A9DA /* RuntimeEx */ = {
 			isa = PBXGroup;
 			children = (
-				6FB40AC418AB9BF70006A9DA /* main.m */,
+				6F03CD2818E02081009F7C00 /* test */,
 				6FB2AAC518AF49EA00B806B9 /* Util */,
 				6FB2AAC318AF49B000B806B9 /* Source */,
 				6FB2AAC218AF498C00B806B9 /* Supporting Files */,
@@ -114,9 +118,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6FB40AC018AB9BF70006A9DA /* RuntimeEx */ = {
+		6FB40AC018AB9BF70006A9DA /* SYRuntimeEx */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6FB40ACA18AB9BF70006A9DA /* Build configuration list for PBXNativeTarget "RuntimeEx" */;
+			buildConfigurationList = 6FB40ACA18AB9BF70006A9DA /* Build configuration list for PBXNativeTarget "SYRuntimeEx" */;
 			buildPhases = (
 				6FB40ABD18AB9BF70006A9DA /* Sources */,
 				6FB40ABE18AB9BF70006A9DA /* Frameworks */,
@@ -126,9 +130,9 @@
 			);
 			dependencies = (
 			);
-			name = RuntimeEx;
+			name = SYRuntimeEx;
 			productName = RuntimeEx;
-			productReference = 6FB40AC118AB9BF70006A9DA /* RuntimeEx */;
+			productReference = 6FB40AC118AB9BF70006A9DA /* SYRuntimeEx */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -140,7 +144,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "song4@163.com";
 			};
-			buildConfigurationList = 6FB40ABC18AB9BF70006A9DA /* Build configuration list for PBXProject "RuntimeEx" */;
+			buildConfigurationList = 6FB40ABC18AB9BF70006A9DA /* Build configuration list for PBXProject "SYRuntimeEx" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -152,7 +156,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6FB40AC018AB9BF70006A9DA /* RuntimeEx */,
+				6FB40AC018AB9BF70006A9DA /* SYRuntimeEx */,
 			);
 		};
 /* End PBXProject section */
@@ -244,7 +248,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREFIX_HEADER = RuntimeEx/PrefixHeader.pch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SYRuntimeEx;
 			};
 			name = Debug;
 		};
@@ -252,14 +256,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREFIX_HEADER = RuntimeEx/PrefixHeader.pch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SYRuntimeEx;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6FB40ABC18AB9BF70006A9DA /* Build configuration list for PBXProject "RuntimeEx" */ = {
+		6FB40ABC18AB9BF70006A9DA /* Build configuration list for PBXProject "SYRuntimeEx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FB40AC818AB9BF70006A9DA /* Debug */,
@@ -268,7 +272,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FB40ACA18AB9BF70006A9DA /* Build configuration list for PBXNativeTarget "RuntimeEx" */ = {
+		6FB40ACA18AB9BF70006A9DA /* Build configuration list for PBXNativeTarget "SYRuntimeEx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FB40ACB18AB9BF70006A9DA /* Debug */,

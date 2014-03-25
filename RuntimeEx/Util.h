@@ -11,7 +11,7 @@
 
 #define AssertEx(expression, ...) \
 do { if(!(expression)) { \
-NSLog(@"%@", [NSString stringWithFormat: @"Assertion failure: %s in %s on line %s:%d. %@", #expression, __PRETTY_FUNCTION__, __FILE__, __LINE__, [NSString stringWithFormat:@"" __VA_ARGS__]]); \
+NSLog(@"%@", [NSString stringWithFormat: @"error: %s in %s on line %s:%d. %@", #expression, __PRETTY_FUNCTION__, __FILE__, __LINE__, [NSString stringWithFormat:@"" __VA_ARGS__]]); \
 abort(); }} while(0)
 
 #endif

@@ -42,7 +42,7 @@ int main(int argc, const char * argv[])
     {
         RuntimeTest* test = [RuntimeTest new];
 
-        {//exchange Method via method
+        {//replace Method via method
             NSLog(@"exchange Method via method          begin");
             
             classEx_exchangeMethod([RuntimeTest class], @selector(testMethod:array:integer:), @selector(newTestMethod:array:integer:));
@@ -71,7 +71,7 @@ int main(int argc, const char * argv[])
         {//add method
             NSLog(@"add method          begin");
             
-            NSString* newMethod = @"newStr:";
+            NSString* newMethod = @"newStr";
             classEx_addMethodWithBlock([RuntimeTest class], newMethod, ^NSString*(__weak id self, NSString* str, NSArray* array){
                 NSLog(@"newStr = %@", str);
                 NSLog(@"newArray = %@", array);
@@ -87,11 +87,10 @@ int main(int argc, const char * argv[])
             NSLog(@"add method          end");
         }
         
-        {
-            [test ifSELWillBeReturned:@selector(testVoidMethod2:array:integer:doubleValue:) executeOperation:^{
+        {//execute block before the sel return.
+            [test beforeSelReturn:@selector(testVoidMethod2:array:integer:doubleValue:) executeBlock:^{
                 NSLog(@"add operation");
             }];
-            
             
             [test testVoidMethod2:Nil array:@[@1,@2] integer:5 doubleValue:9.9];
         }

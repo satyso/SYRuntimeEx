@@ -16,6 +16,6 @@ typedef void (^block_t)(void);
  @  execute block before SEL return
  */
 
--(BOOL)ifSELWillBeReturned:(SEL)sel executeOperation:(block_t)extraBlock;
+-(BOOL)beforeSelReturn:(SEL)sel executeBlock:(block_t)extraBlock;
 
 @end

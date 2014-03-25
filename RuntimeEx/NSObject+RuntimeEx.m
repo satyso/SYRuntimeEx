@@ -37,7 +37,7 @@ void** getObjectValue(va_list list, const char* type);
 
 @implementation NSObject (RuntimeEx)
 
--(BOOL)ifSELWillBeReturned:(SEL)sel executeOperation:(block_t)extraBlock
+-(BOOL)beforeSelReturn:(SEL)sel executeBlock:(block_t)extraBlock
 {
     if ([self respondsToSelector:sel] == NO)
     {

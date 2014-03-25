@@ -20,6 +20,12 @@ BOOL isSignatureEqual(id block, Method method);
 
 const char* getBlockSignature(id block);
 
+/**
+ @ replace originalSelector with IMP.
+ */
+
+BOOL classEx_replaceMethodWithIMP(Class c, SEL originalSEL, IMP newIMP);
+
 //////////////////////////////////////////////////////////////////
 
 BOOL classEx_exchangeMethod(Class c, SEL originalSEL, SEL newSEL)
@@ -121,7 +127,7 @@ BOOL isSignatureEqual(id block, Method method)
     
     //block展开后的第一个参数为函数指针，用@?表示 第二个是self 用@表示
     //method展开后第一个参数为self 用@表示 第二个参数是SEL 用:表示
-    //可以略过这俩参数，剩下的参数block要比method全，因为block是纯c++函数，所以对参数的说明要多于method
+    //可以略过这俩参数，剩下的参数block要比method全，因为block是纯c函数，所以对参数的说明要多于method
     //    //在method中 block 是 @?
     //    //在block中 嵌套block 是 <v@?>
     //    //函数调用看.h，函数签名看的确是.m
