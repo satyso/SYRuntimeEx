@@ -8,5 +8,5 @@ Pod::Spec.new do |s|
   s.social_media_url = "http://weibo.com/u/1844979955/home"
   s.platform     = :ios
   s.source       = { :git => "https://github.com/satyso/Runtime_Ex.git", :tag => "1.0.0" }
-  s.source_files  = 'RuntimeEx/RuntimeEx/**/*.{h,m}'
+  s.source_files  = 'RuntimeEx/*.{h,m}'
 end
