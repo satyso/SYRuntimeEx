@@ -63,7 +63,7 @@ int main(int argc, const char * argv[])
                 NSLog(@"int = %ld", i);
                 return @"classEx_replaceMethodWithBlock";
             });
-            NSLog(@"%@", [test testMethod:NULL array:@[@1,@2,@3] integer:11111]);
+            NSLog(@"%@", [test testMethod:NULL array:@[@1,@2,@3] integer:(NSInteger)11111]);
             
             NSLog(@"replace Method via block          end");
         }
